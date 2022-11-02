@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import { Form, Navbar, Table } from "react-bootstrap";
-import logo from "./logo.svg";
-import nvbackground from "./nv-background.jpg";
+import logo from "../assets/images/logo.svg";
+import nvbackground from "../assets/images/nv-background-1.jpg";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import './capsules.css'
+
+
 const Capsules = () => {
   const [capsules, setCapsules] = useState([]);
   const [pageItems, setPageItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
 
-  //   -------------------------- filter starts ---------------------------------------
   const [date, setDate] = useState(null);
   const [status, setStatus] = useState("");
   const [type, setType] = useState("");
@@ -20,7 +21,6 @@ const Capsules = () => {
     e.preventDefault();
     getAllCapsules(date, status, type); 
   }
-  // -------------------------- pagination start -------------------//
   const updatePageItems = (pageNo) => {
     const end = pageNo * 10;
     const start = end - 10;
@@ -92,11 +92,11 @@ const Capsules = () => {
         <div className="row">
           <div className="col-12">
             <Navbar
-              className="bg d-flex justify-content-end"
+              className="bg d-flex justify-content-start"
               style={{ height: "300px",  backgroundImage: `url(${nvbackground})`, backgroundSize: 'cover', width: '100%' , backgroundRepeat: "no-repeat" }}
             >
              
-                <Navbar.Brand href="#home" className="d-flex justify-content-end">
+                <Navbar.Brand href="#home" className="d-flex justify-content-start">
                   <img
                     alt=""
                     src={logo}
